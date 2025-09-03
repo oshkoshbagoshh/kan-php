@@ -222,3 +222,14 @@ _ide_helper_models.php
 # Local configuration overrides
 local_config.php
 local_settings.php
+
+
+# MVC Framework specific
+/storage/logs/*
+!/storage/logs/.gitkeep
+/storage/cache/*
+!/storage/cache/.gitkeep
+/storage/sessions/*
+!/storage/sessions/.gitkeep
+/public/uploads/*
+!/public/uploads/.gitkeep
