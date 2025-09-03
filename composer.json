@@ -1,0 +1,51 @@
+{
+    "name": "oshkoshbagoshh/kan-php",
+    "type": "library",
+    "description": "MVC Framework",
+    "keywords": [
+        "oshkoshbagoshh",
+        "kan-php",
+        "mvc",
+        "framework"
+    ],
+    "homepage": "https://github.com/oshkoshbagoshh/kan-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "AJ Javadi",
+            "email": "amirjavadi25@gmail.com",
+            "homepage": "https://github.com/oshkoshbagoshh",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : "~8.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit" : ">=8.0",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "oshkoshbagoshh\\kan-php\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "oshkoshbagoshh\\kan-php\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "check-style": "phpcs src tests",
+        "fix-style": "phpcbf src tests"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
