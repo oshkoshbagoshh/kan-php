@@ -27,7 +27,9 @@
     },
     "autoload": {
         "psr-4": {
-            "oshkoshbagoshh\\kan-php\\": "src"
+            "oshkoshbagoshh\\kan-php\\": "src",
+            "Core\\": "core/",
+            "App\\": "app/"
         }
     },
     "autoload-dev": {
