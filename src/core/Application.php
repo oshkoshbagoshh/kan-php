@@ -17,6 +17,8 @@ class Application
 
     private $config;
 
+    private $basePath;
+
     public function __construct($basePath)
     {
         self::$instance = $this;

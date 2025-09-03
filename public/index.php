@@ -1,18 +1,35 @@
 <?php
 
-?>
-<!DOCTYPE html>
-<html lang="en">
+require_once __DIR__ . '/../vendor/autoload.php';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+use Core\Application;
 
-<body>
-    <h1>Welcome to Kan-PHP</h1>
 
-</body>
+// Load env variables
+if (file_exists(__DIR__ . '/../.env')) {
+    $lines = file(__DIR__ '/../.env', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    foreach ($lines as $line) {
+        if (strpos($line, '=') !== false && strpos($line, '#') !== 0) {
+            list($key, $value) = explode('=', $line, 2);
+            $_ENV[trim($key)] = trim($value);
+        }
+    }
+}
 
-</html>
+// Create application instance
+$app = new Application(__DIR__ . '/..');
+
+// Define routes 
+$app->get('/', 'HomeController@index');
+$app->get('/about', 'HomeController@about');
+$app-get('/users/{id}', 'UserController@show');
+$app->post('/users', 'UserController@store');
+
+
+// API routes
+$app->get('/api/users', function($request) {
+    return new Core\Http\Response()->json(['users' => []]);
+});
+
+// Run the application
+$app->run();
